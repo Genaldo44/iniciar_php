@@ -3,13 +3,35 @@ $categorias =[];
 $categorias[] = 'infantil';
 $categorias[] = 'adolescente';
 $categorias[] = 'adulto';
-$categorias[] = 'idoso';
-// print_r($categorias);
-//var_dump ($nome);
-//var_dump ($idade);
 
-$nome = 'Genaldo';
-$idade = 45;
+$nome = $_POST['nome'];
+$idade = $_POST['idade'];
+
+
+if(strlen($nome) >40 )
+{
+    echo 'o nome é muito extenso, favor abreviar';
+    return;
+}
+
+if(strlen($nome) <3 )
+{
+    echo 'o nome tem que ter menos de 3 letras';
+    return;
+}
+
+if(empty($nome))
+{
+    echo 'o nome não pode ficar em branco ou vazio';
+    return;
+}
+
+if(!is_numeric($idade))
+{
+    echo 'o valor em idade deve ser um numeral';
+    return;
+}
+
 
 if($idade >= 6 && $idade <=12)
 {
